@@ -1,0 +1,33 @@
+# Secrets
+.env.local
+.env
+*.env
+
+# API credentials
+service-account.json
+credentials.json
+*.json.key
+content-engine-*.json
+GOOGLE_SHEETS_API_KEY*.txt
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Generated outputs (runtime artifacts)
+profiles.json
+research-output.json
+weekly-research-output.json
+weekly-content-output.json
+weekly-run-report.json
+
+# Claude Code local data
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

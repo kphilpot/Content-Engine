@@ -1,0 +1,15 @@
+{
+  "name": "content-engine-control-center",
+  "version": "1.0.0",
+  "description": "Google Sheets-backed control center and profile reader for the Content Engine system.",
+  "main": "core/orchestrator.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test --test-isolation=none",
+    "run:orchestrator": "node scripts/run_orchestrator.js"
+  },
+  "dependencies": {
+    "googleapis": "^148.0.0",
+    "xlsx": "^0.18.5"
+  }
+}
