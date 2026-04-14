@@ -1,6 +1,6 @@
 const fs = require("fs/promises");
 const path = require("path");
-const { readAllTabs } = require("../sheets/reader");
+const { readAllTabs } = require("../sheets/reader_yaml");
 const { buildControlCenterState } = require("./control_center");
 const { normalizeProfiles } = require("../profiles/profile_normalizer");
 const { runResearchEngine } = require("../research/research_engine");
@@ -12,8 +12,8 @@ async function orchestrator(sheetId, options = {}) {
     options.researchOutputPath ?? path.join(process.cwd(), "research-output.json");
   const skipResearch = options.skipResearch ?? false;
 
-  // PHASE 1-2: Read and validate control center
-  const readResult = await readAllTabs(sheetId, { logger, apiKey: options.apiKey });
+  // PHASE 1-2: Read and validate control center (from YAML config files)
+  const readResult = await readAllTabs();
   const { controlCenterState, validationReport: controlCenterReport } =
     buildControlCenterState(readResult);
   const { profileConfigs, validationResults, validationReport: profileReport } =

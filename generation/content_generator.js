@@ -151,35 +151,64 @@ Affiliate URL to reference (naturally): ${affiliateUrl}`;
 }
 
 /**
- * Call Claude API
+ * Call Claude via Browser Automation Backend
+ * Instead of using Claude API directly, call the local browser automation server
+ * This uses your Claude.ai subscription instead of paying for API
  */
 async function callClaudeAPI(prompt, apiKey) {
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-6",
-      max_tokens: 1024,
-      system: prompt.systemPrompt,
-      messages: [
-        {
-          role: "user",
-          content: prompt.userPrompt
+  // Get browser backend URL from environment or use default
+  const browserBackendUrl = process.env.BROWSER_API_URL || 'http://localhost:3000';
+
+  // Combine system and user prompts into single message
+  const fullPrompt = `${prompt.systemPrompt}\n\n${prompt.userPrompt}`;
+
+  try {
+    const response = await fetch(`${browserBackendUrl}/generate`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        prompt: fullPrompt,
+        options: {
+          temperature: 0.7,
+          maxTokens: 1024
         }
-      ]
-    })
-  });
+      })
+    });
 
-  if (!response.ok) {
-    const error = await response.text();
-    throw new Error(`Claude API ${response.status}: ${error}`);
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(`Browser backend ${response.status}: ${error}`);
+    }
+
+    const data = await response.json();
+
+    if (!data.success) {
+      throw new Error(`Browser backend error: ${data.error}`);
+    }
+
+    // Wrap response in Anthropic API format for compatibility with parsing logic
+    return {
+      success: true,
+      content: [
+        {
+          text: data.content,
+          type: 'text'
+        }
+      ],
+      usage: {
+        input_tokens: 0,  // Browser automation doesn't charge by tokens
+        output_tokens: 0
+      }
+    };
+  } catch (error) {
+    // If browser backend unavailable, provide helpful error message
+    if (error.message.includes('ECONNREFUSED') || error.message.includes('failed to fetch')) {
+      throw new Error(`Browser backend not running. Start it with: npm run start:backend`);
+    }
+    throw error;
   }
-
-  return response.json();
 }
 
 /**

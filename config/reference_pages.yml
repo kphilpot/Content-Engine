@@ -1,0 +1,157 @@
+# Content Engine - Reference Pages
+# Sources to learn from: top creators, guides, case studies
+# The system extracts patterns from these to improve content generation
+
+reference_pages:
+  # Hair Product Channel References
+  - reference_id: ref_hair_product_1
+    profile_id: personal_product_main
+    reference_name: Beauty Brand Case Study
+    reference_type: article_url
+    reference_url: https://example.com/case-studies/hair-growth-product
+    why_it_matters: Proven product positioning and benefit communication
+    content_traits_to_study:
+      - problem_hook
+      - transformation_narrative
+      - before_after_framing
+    trust_traits_to_study:
+      - customer_testimonials
+      - scientific_backing
+      - expert_credentials
+    conversion_traits_to_study:
+      - urgency_signals
+      - social_proof
+      - guarantee_language
+    visual_traits_to_study:
+      - product_in_lifestyle
+      - transformation_visuals
+      - diverse_representations
+    enabled: true
+    notes: Study their hook patterns and conversion techniques
+
+  - reference_id: ref_hair_product_2
+    profile_id: personal_product_main
+    reference_name: Trending Hair Product TikTok
+    reference_type: social_account
+    reference_url: https://tiktok.com/@successful_hair_brand
+    why_it_matters: Real-time TikTok trends and viral patterns for the niche
+    content_traits_to_study:
+      - viral_hooks
+      - trending_sounds
+      - format_variety
+    trust_traits_to_study:
+      - authenticity_signals
+      - community_engagement
+      - behind_scenes_content
+    conversion_traits_to_study:
+      - link_in_bio_strategy
+      - comment_bait
+      - cta_placement
+    visual_traits_to_study:
+      - production_quality
+      - thumbnail_effectiveness
+      - on_screen_text
+    enabled: true
+    notes: Update weekly with new top performers
+
+  # Hair Authority Channel 1 References
+  - reference_id: ref_authority_1
+    profile_id: hair_authority_1
+    reference_name: Top Hair Science Creator
+    reference_type: social_account
+    reference_url: https://tiktok.com/@hairstylist_scientist
+    why_it_matters: Combines education with entertainment, builds large engaged audience
+    content_traits_to_study:
+      - myth_busting
+      - science_explanation
+      - entertainment_value
+    trust_traits_to_study:
+      - expertise_display
+      - consistent_quality
+      - community_education
+    conversion_traits_to_study:
+      - affiliate_recommendations
+      - course_mentions
+      - link_strategy
+    visual_traits_to_study:
+      - demo_focused
+      - split_screen_before_after
+      - text_overlay_education
+    enabled: true
+    notes: Study their 70% education, 30% entertainment ratio
+
+  - reference_id: ref_authority_2
+    profile_id: hair_authority_1
+    reference_name: Viral Hair Trend Channel
+    reference_type: social_account
+    reference_url: https://instagram.com/viral_hair_trends
+    why_it_matters: Leads trends, high virality rate, diverse audience appeal
+    content_traits_to_study:
+      - trend_jacking
+      - challenge_participation
+      - entertainment_first
+    trust_traits_to_study:
+      - authenticity
+      - personality_driven
+      - fan_engagement
+    conversion_traits_to_study:
+      - soft_cta
+      - community_links
+      - partnership_mentions
+    visual_traits_to_study:
+      - high_production_value
+      - diverse_creators
+      - aesthetic_consistency
+    enabled: true
+    notes: High engagement rate despite lower follower count
+
+  # Hair Authority Channel 2 References
+  - reference_id: ref_authority_3
+    profile_id: hair_authority_2
+    reference_name: Daily Hair Tips Facebook Page
+    reference_type: social_account
+    reference_url: https://facebook.com/daily_hair_tips
+    why_it_matters: Proven Facebook engagement formula for daily tips content
+    content_traits_to_study:
+      - post_length_optimization
+      - tip_structure
+      - seasonal_content
+    trust_traits_to_study:
+      - community_building
+      - comment_engagement
+      - story_sharing
+    conversion_traits_to_study:
+      - group_promotion
+      - product_recommendations
+      - affiliate_links
+    visual_traits_to_study:
+      - carousel_format
+      - infographic_style
+      - lifestyle_photography
+    enabled: true
+    notes: Study their 24-hour response rate to comments
+
+  - reference_id: ref_authority_4
+    profile_id: hair_authority_2
+    reference_name: Beauty Community Guide
+    reference_type: google_doc
+    reference_url: https://docs.google.com/document/d/your-shared-doc
+    why_it_matters: Internal playbook for community-driven content strategy
+    content_traits_to_study:
+      - community_questions
+      - hot_topics
+      - seasonal_themes
+    trust_traits_to_study:
+      - helpful_tone
+      - detailed_responses
+      - consistent_voice
+    conversion_traits_to_study:
+      - resource_sharing
+      - product_mentions
+      - workshop_promotions
+    visual_traits_to_study:
+      - simple_graphics
+      - infographics
+      - poll_styling
+    enabled: false
+    notes: Enable when you have internal doc set up

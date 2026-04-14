@@ -1,0 +1,180 @@
+# Content Engine - Profile Configuration
+# Define your social media profiles and their settings here
+
+profiles:
+  - profile_id: personal_product_main
+    channel_name: Hair Product Channel
+    mode: personal_product
+    niche: hair
+    active_platforms:
+      - tiktok
+      - instagram
+      - facebook
+      - youtube
+
+    # Content Strategy
+    content_pillars:
+      - product_benefits
+      - user_transformations
+      - ingredient_education
+      - lifestyle_integration
+
+    tone: warm-educational
+    research_focus:
+      - hair_loss_solutions
+      - natural_ingredients
+      - product_reviews
+      - beauty_trends
+
+    # Posting Schedule
+    posting_frequency:
+      tiktok: 5
+      youtube: 5
+      instagram: 4
+      facebook: 4
+
+    # Content Ratios
+    content_ratios:
+      growth: 25
+      trust: 20
+      proof: 20
+      conversion: 20
+      fluff: 15
+
+    # CTA Settings
+    cta_intensity: medium
+    active_product_name: Hair Renewal Pro
+    active_product_url: https://yourproduct.com/hair-renewal
+    affiliate_url: https://affiliate.link/hair-renewal
+
+    # Plugin Settings
+    plugin_enabled: false
+    plugin_id: null
+    plugin_url: null
+
+    # Approval & Quality
+    approval_mode: auto
+    smart_approval_enabled: true
+
+    # Budget Allocation
+    budget_weight: 40
+
+    # Enable/Disable
+    enabled: true
+
+  - profile_id: hair_authority_1
+    channel_name: Hair Authority Academy
+    mode: niche_authority
+    niche: hair
+    active_platforms:
+      - tiktok
+      - instagram
+      - youtube
+
+    # Content Strategy
+    content_pillars:
+      - hair_science
+      - common_mistakes
+      - trending_techniques
+      - community_engagement
+
+    tone: bold-entertaining
+    research_focus:
+      - hair_care_trends
+      - viral_hair_content
+      - science_backed_tips
+      - celebrity_hairstyles
+
+    # Posting Schedule
+    posting_frequency:
+      tiktok: 5
+      youtube: 5
+      instagram: 4
+      facebook: 0
+
+    # Content Ratios
+    content_ratios:
+      growth: 35
+      trust: 20
+      proof: 10
+      conversion: 5
+      fluff: 30
+
+    # CTA Settings
+    cta_intensity: low
+    active_product_name: null
+    active_product_url: null
+    affiliate_url: null
+
+    # Plugin Settings
+    plugin_enabled: false
+    plugin_id: null
+    plugin_url: null
+
+    # Approval & Quality
+    approval_mode: auto
+    smart_approval_enabled: true
+
+    # Budget Allocation
+    budget_weight: 35
+
+    # Enable/Disable
+    enabled: true
+
+  - profile_id: hair_authority_2
+    channel_name: Hair Tips Daily
+    mode: niche_authority
+    niche: hair
+    active_platforms:
+      - facebook
+      - instagram
+
+    # Content Strategy
+    content_pillars:
+      - daily_tips
+      - community_stories
+      - product_recommendations
+      - trend_commentary
+
+    tone: friendly-conversational
+    research_focus:
+      - facebook_trends
+      - community_discussions
+      - lifestyle_hair_care
+      - sustainable_beauty
+
+    # Posting Schedule
+    posting_frequency:
+      tiktok: 0
+      youtube: 0
+      instagram: 4
+      facebook: 4
+
+    # Content Ratios
+    content_ratios:
+      growth: 30
+      trust: 25
+      proof: 10
+      conversion: 10
+      fluff: 25
+
+    # CTA Settings
+    cta_intensity: medium
+    active_product_name: null
+    active_product_url: null
+    affiliate_url: null
+
+    # Plugin Settings
+    plugin_enabled: false
+    plugin_id: null
+    plugin_url: null
+
+    # Approval & Quality
+    approval_mode: auto
+    smart_approval_enabled: true
+
+    # Budget Allocation
+    budget_weight: 25
+
+    # Enable/Disable
+    enabled: true

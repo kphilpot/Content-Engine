@@ -1,0 +1,53 @@
+# Content Engine - Monetization Plugins
+# Define available plugins for conversion optimization
+
+plugins:
+  - plugin_id: hair_care_quiz
+    plugin_name: Hair Care Type Quiz
+    plugin_type: quiz
+    niche: hair
+    plugin_url: https://yoursite.com/quiz/hair-type
+    default_cta_copy: Take the quiz to find your perfect routine
+    default_cta_mode: soft
+    enabled: true
+    notes: Generates leads and determines customer segment
+
+  - plugin_id: scalp_assessment
+    plugin_name: Free Scalp Assessment
+    plugin_type: scalp_audit
+    niche: hair
+    plugin_url: https://yoursite.com/tools/scalp-assessment
+    default_cta_copy: Get a free assessment
+    default_cta_mode: direct
+    enabled: true
+    notes: High-converting tool for product recommendations
+
+  - plugin_id: hair_guide
+    plugin_name: Ultimate Hair Care Guide
+    plugin_type: guide
+    niche: hair
+    plugin_url: https://yoursite.com/guides/complete-hair-care
+    default_cta_copy: Download the free guide
+    default_cta_mode: soft
+    enabled: false
+    notes: Lead magnet for email list building
+
+  - plugin_id: affiliate_partner_network
+    plugin_name: Affiliate Network
+    plugin_type: affiliate
+    niche: hair
+    plugin_url: https://affiliates.partnersite.com
+    default_cta_copy: Shop the best products
+    default_cta_mode: soft
+    enabled: false
+    notes: General affiliate network for product recommendations
+
+  - plugin_id: product_landing
+    plugin_name: Main Product Landing Page
+    plugin_type: landing_page
+    niche: hair
+    plugin_url: https://yoursite.com/products/hair-renewal-pro
+    default_cta_copy: Learn more
+    default_cta_mode: direct
+    enabled: true
+    notes: Primary conversion page for owned product

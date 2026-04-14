@@ -121,51 +121,53 @@ Respond in JSON format with these exact keys: hooks, contentPatterns, trustPatte
  * Note: User typically has Gemini Pro access for free as part of Google account
  */
 async function callGeminiAPI(prompt, focusArea) {
-  const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+  // Call Gemini via Browser Automation Backend
+  // Instead of using Gemini API directly, call the local browser automation server
+  // This uses your Gemini.ai subscription instead of paying for API
 
-  if (!apiKey) {
-    throw new Error(
-      "GOOGLE_GENERATIVE_AI_API_KEY not set. Gemini synthesis requires API key."
-    );
-  }
+  const browserBackendUrl = process.env.BROWSER_API_URL || 'http://localhost:3000';
 
-  const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      contents: [
-        {
-          parts: [
-            {
-              text: prompt
-            }
-          ]
+  try {
+    const response = await fetch(`${browserBackendUrl}/synthesize`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        prompt: prompt,
+        options: {
+          temperature: 0.7,
+          maxTokens: 2000
         }
-      ],
-      generationConfig: {
-        temperature: 0.7,
-        maxOutputTokens: 2000
-      }
-    })
-  });
+      })
+    });
 
-  if (!response.ok) {
-    throw new Error(`Gemini API returned ${response.status}: ${await response.text()}`);
+    if (!response.ok) {
+      throw new Error(`Browser backend ${response.status}: ${await response.text()}`);
+    }
+
+    const data = await response.json();
+
+    if (!data.success) {
+      throw new Error(`Browser backend error: ${data.error}`);
+    }
+
+    // Parse JSON from Gemini's response
+    const responseText = data.synthesis || '';
+    const jsonMatch = responseText.match(/\{[\s\S]*\}/);
+
+    if (!jsonMatch) {
+      throw new Error("Could not parse JSON from Gemini response");
+    }
+
+    return JSON.parse(jsonMatch[0]);
+  } catch (error) {
+    // If browser backend unavailable, provide helpful error message
+    if (error.message.includes('ECONNREFUSED') || error.message.includes('failed to fetch')) {
+      throw new Error(`Browser backend not running. Start it with: npm run start:backend`);
+    }
+    throw error;
   }
-
-  const data = await response.json();
-  const responseText =
-    data.candidates?.[0]?.content?.parts?.[0]?.text || "";
-
-  // Parse JSON from response
-  const jsonMatch = responseText.match(/\{[\s\S]*\}/);
-  if (!jsonMatch) {
-    throw new Error("Could not parse JSON from Gemini response");
-  }
-
-  return JSON.parse(jsonMatch[0]);
 }
 
 /**
